@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-let PORT = process.env.PORT || 5000;
+let PORT = process.env.PORT || 5001;
 
 app.use(express.json());
 app.use(express.static('server/public'));
@@ -13,8 +13,18 @@ let calculations = []
 // Here's a wonderful place to make some routes:
 
 // GET /calculations
+  // sends the array of calcuations
+app.get('/calculations', (req, res) => {
+  console.log('GET/calculations is getting requeset')
+  console.log('GET/calculations req.body:', req.body)
+  console.log('expect array of calculations', calculations);
+  res.send(calculations);
+});
+
 
 // POST /calculations
+  // does the math, pushes to array
+  // sends 201
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
