@@ -1,3 +1,8 @@
+/* not sure why this isnt working */
+
+.container {
+    background-image: url('images/futurama-web-dynamiclead-desktop-1920x1080-1.webp')
+}
 .number {
     display: block;
     width: 100%;
