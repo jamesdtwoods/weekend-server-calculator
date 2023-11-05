@@ -9,7 +9,7 @@
   <body>
     <h1>Server-Side Calculator</h1>
 
-    <form onsubmit="formSubmit(event)" data-testid="calculator">
+    <!-- <form onsubmit="formSubmit(event)" data-testid="calculator">
       <input id="firstNumber" placeholder="First Number" type="number">
       <button id="add" onclick="onAdd()">+</button>
       <button id="subtract" onclick="onSubtract()">-</button>
@@ -19,7 +19,44 @@
       <button id="equals" onclick="onEquals()">=</button>
       <button onclick="onClear()" >C</button>
       <button onclick="onClearHistory()" >Clear History</button>
-    </form>
+    </form> -->
+
+<!-- stretch goal formating from: https://www.geeksforgeeks.org/javascript-calculator/# -->
+
+<table id="calcu"> 
+  <tr> 
+      <td colspan="3"><input type="text" id="result"></td> 
+      <td><input type="button" value="c" onclick="onClear()" /> </td> 
+  </tr> 
+  <tr> 
+      <td><input type="button" value="1️" onclick="dis('1')"></td> 
+      <td><input type="button" value="2" onclick="dis('2')"></td> 
+      <td><input type="button" value="3" onclick="dis('3')"></td> 
+      <td><input class="operator" type="button" value="/" onclick="dis(' / ')"></td> 
+  </tr> 
+  <tr> 
+      <td><input type="button" value="4" onclick="dis('4')"></td> 
+      <td><input type="button" value="5" onclick="dis('5')"></td> 
+      <td><input type="button" value="6" onclick="dis('6')"></td> 
+      <td><input class="operator" type="button" value="*" onclick="dis(' * ')"></td> 
+  </tr> 
+  <tr> 
+      <td><input type="button" value="7" onclick="dis('7')"></td> 
+      <td><input type="button" value="8" onclick="dis('8')"></td> 
+      <td><input type="button" value="9" onclick="dis('9')"></td> 
+      <td><input class="operator" type="button" value="-" onclick="dis(' - ')"></td> 
+  </tr> 
+  <tr> 
+      <td><input type="button" value="0" onclick="dis('0')"></td> 
+      <td><input type="button" value="." onclick="dis('.')"></td> 
+      
+      <!-- solve function call function solve to evaluate value -->
+      <td><input type="button" value="=" onclick="onEquals()"> </td> 
+
+      <td><input class="operator" type="button" value="+" onclick="dis(' + ')"
+                  onkeydown="myFunction(event)"> </td> 
+  </tr> 
+</table> 
 
     <section id="recentResult" data-testid="recentResult">
       <!-- The most recent calculation result goes here. -->

@@ -33,6 +33,7 @@ function renderCalculations (calcuations) {
       `
     }
     let lastCalculation = calcuations.slice(-1);
+    // let lastCalculation = calcuations[calcuations.length - 1];
     console.log('expect last calculation', lastCalculation);
     recentResult.innerHTML += `<h2>${lastCalculation[0].result}</h2>`;
 }
@@ -56,10 +57,19 @@ function onDivide() {
     return operator = '/';
 }
 function onEquals() {
-    let numOne = document.getElementById('firstNumber').value;
-    let numTwo = document.getElementById('secondNumber').value;
-    document.getElementById('firstNumber').value = '';
-    document.getElementById('secondNumber').value = '';
+    let input = document.getElementById("result").value 
+    document.getElementById("result").value = '';
+    document.querySelectorAll(".operator").forEach(e => e.disabled = false)
+    console.log('expect inputs', input);
+    let inputSplit = input.split(" ");
+    console.log('array of inputs', inputSplit);
+    for (i=0; i < inputSplit.length; i++){
+        console.log(inputSplit[i]);
+        numOne = inputSplit[0];
+        operator = inputSplit[1];
+        numTwo = inputSplit[2];
+    }
+    console.log('expect the inputs', numOne, operator, numTwo);
     let newCalculation = 
         {
         numOne: Number(numOne),
@@ -81,8 +91,13 @@ function onEquals() {
 // clear button clears the inputs
     // no routes
 function onClear() {
-    document.getElementById('firstNumber').value = '';
-    document.getElementById('secondNumber').value = '';
+    // old calculator 
+    // document.getElementById('firstNumber').value = '';
+    // document.getElementById('secondNumber').value = '';
+
+    // new calculator
+    document.getElementById("result").value = ""
+    document.querySelectorAll(".operator").forEach(e => e.disabled = false)
 }
 
 // clear history button clears the history
@@ -95,3 +110,11 @@ function onClearHistory(){
         getHistory();
     })
 }
+
+// display function
+ function dis(val) { 
+    document.getElementById("result").value += val;
+    if (val === ' + ' || val === ' - ' || val === ' * ' || val === ' / ') {
+        document.querySelectorAll(".operator").forEach(e => e.disabled = true)
+    }
+ }
