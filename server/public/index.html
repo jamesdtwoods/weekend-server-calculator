@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Server-Side Calculator</title>    
-    <script defer src="scripts/axios.js"></script>
-    <script defer src="scripts/client.js" charset="utf-8"></script>
-  </head>
-  <body>
-    <h1>Server-Side Calculator</h1>
+
+<head>
+  <meta charset="utf-8">
+  <title>Server-Side Calculator</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <script defer src="scripts/axios.js"></script>
+  <script defer src="scripts/client.js" charset="utf-8"></script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Ask Calcutron:</h1>
+
 
     <!-- <form onsubmit="formSubmit(event)" data-testid="calculator">
       <input id="firstNumber" placeholder="First Number" type="number">
@@ -21,49 +26,58 @@
       <button onclick="onClearHistory()" >Clear History</button>
     </form> -->
 
-<!-- stretch goal formating from: https://www.geeksforgeeks.org/javascript-calculator/# -->
+    <!-- stretch goal formating from: https://www.geeksforgeeks.org/javascript-calculator/# -->
 
-<table id="calcu"> 
-  <tr> 
-      <td colspan="3"><input type="text" id="result"></td> 
-      <td><input type="button" value="c" onclick="onClear()" /> </td> 
-  </tr> 
-  <tr> 
-      <td><input type="button" value="1️" onclick="dis('1')"></td> 
-      <td><input type="button" value="2" onclick="dis('2')"></td> 
-      <td><input type="button" value="3" onclick="dis('3')"></td> 
-      <td><input class="operator" type="button" value="/" onclick="dis(' / ')"></td> 
-  </tr> 
-  <tr> 
-      <td><input type="button" value="4" onclick="dis('4')"></td> 
-      <td><input type="button" value="5" onclick="dis('5')"></td> 
-      <td><input type="button" value="6" onclick="dis('6')"></td> 
-      <td><input class="operator" type="button" value="*" onclick="dis(' * ')"></td> 
-  </tr> 
-  <tr> 
-      <td><input type="button" value="7" onclick="dis('7')"></td> 
-      <td><input type="button" value="8" onclick="dis('8')"></td> 
-      <td><input type="button" value="9" onclick="dis('9')"></td> 
-      <td><input class="operator" type="button" value="-" onclick="dis(' - ')"></td> 
-  </tr> 
-  <tr> 
-      <td><input type="button" value="0" onclick="dis('0')"></td> 
-      <td><input type="button" value="." onclick="dis('.')"></td> 
-      
-      <!-- solve function call function solve to evaluate value -->
-      <td><input type="button" value="=" onclick="onEquals()"> </td> 
 
-      <td><input class="operator" type="button" value="+" onclick="dis(' + ')"
-                  onkeydown="myFunction(event)"> </td> 
-  </tr> 
-</table> 
+    <table id="calcu">
+      <tr>
+        <td colspan="3"><input id="result"></td>
+        <td><button class="clear" onclick="onClear()">c</button></td>
+      </tr>
+      <tr>
+        <td><button class="number" onclick="dis('1')">1</button></td>
+        <td><button class="number" onclick="dis('2')">2</button></td>
+        <td><button class="number" onclick="dis('3')">3</button></td>
+        <td><button class="operator" onclick="dis(' / ')">/</button></td>
+      </tr>
+      <tr>
+        <td><button class="number" onclick="dis('4')">4</button></td>
+        <td><button class="number" onclick="dis('5')">5</button></td>
+        <td><button class="number" onclick="dis('6')">6</button></td>
+        <td><button class="operator" onclick="dis(' * ')">*</button></td>
+      </tr>
+      <td><button class="number" onclick="dis('7')">7</button></td>
+      <td><button class="number" onclick="dis('8')">8</button></td>
+      <td><button class="number" onclick="dis('9')">9</button></td>
+      <td><button class="operator" onclick="dis(' - ')">-</button></td>
+      </tr>
+      <tr>
+        <td><button class="number" onclick="dis('0')">0</button></td>
+        <td><button class="number" onclick="dis('.')">.</button></td>
+        <td><button class="equals" onclick="onEquals()">=</button></td>
+        <td><button class="operator" onclick="dis(' + ')">+</button></td>
+      </tr>
+    </table>
+    <br>
 
-    <section id="recentResult" data-testid="recentResult">
-      <!-- The most recent calculation result goes here. -->
-    </section>
 
-    <section id="resultHistory" data-testid="resultHistory">
-      <!-- The list of calculation results goes here. -->
-    </section>
-  </body>
+
+    <div class="calculationHistory">
+      <div class="calculationHistoryContent_img">
+
+        <img src="images/Character_Calculon.webp">
+      </div>
+      <div class="calculationHistoryContent">
+        <h2>Calculon says: <section id="recentResult" data-testid="recentResult">
+            <!-- The most recent calculation result goes here. -->
+          </section>
+        </h2>
+        <section id="resultHistory" data-testid="resultHistory">
+          <!-- The list of calculation results goes here. -->
+        </section>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

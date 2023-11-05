@@ -35,7 +35,7 @@ function renderCalculations (calcuations) {
     let lastCalculation = calcuations.slice(-1);
     // let lastCalculation = calcuations[calcuations.length - 1];
     console.log('expect last calculation', lastCalculation);
-    recentResult.innerHTML += `<h2>${lastCalculation[0].result}</h2>`;
+    recentResult.innerHTML += `${lastCalculation[0].result}`;
 }
 
 

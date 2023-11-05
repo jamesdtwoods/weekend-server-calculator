@@ -1,0 +1,83 @@
+.number {
+    display: block;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: darkgray; 
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+  }
+
+.operator {
+    display: block;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: orange; 
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.equals {
+    display: block;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: steelblue; 
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.clear {
+    display: block;
+    width: 100%;
+    border: none;
+    color: white;
+    background-color: rgb(72, 72, 72); 
+    padding: 14px 28px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+}
+
+table, tr, td {
+    border: 1px solid;
+    border-color: black;
+    border-collapse: collapse;
+    text-align: center;
+    
+}
+
+.calculationHistory {
+    text-align: left;
+}
+
+.calculationHistoryContent {
+    display: inline-block;
+    vertical-align: top;
+    border: 1px dashed black;
+    border-radius: 20%;
+    padding: 1rem 1rem;
+}
+
+.calculationHistoryContent_img {
+    display: inline-block;
+    vertical-align: top;
+}
+
+
