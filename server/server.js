@@ -47,6 +47,18 @@ app.get('/calculations', (req, res) => {
   });
 
 
+// DELETE /calculations
+  // clears array of calcuations
+app.delete('/calculations', (req, res) => {
+  console.log('DELETE/calculations is getting requeset')
+  console.log('DELETE/calculations req.body:', req.body)
+  console.log('expect array of calculations', calculations);
+  calculations = [];
+  console.log('expect blank array', calculations);
+  res.sendStatus(201);
+});
+
+
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
 // 🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸  🐻  🐻‍❄️  🧸
 

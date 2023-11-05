@@ -9,8 +9,7 @@ function formSubmit(event) {
 // GET calculations request
     // render calculations history
     // render most recent result (if there is one)
-        // this ends up throwing an error in the browser console 
-        // on start if there's no previous calculations
+        // this returns undefined if no data on start
 function getHistory() {
     axios({
         url: '/calculations',
@@ -18,7 +17,7 @@ function getHistory() {
     }).then((response) => {
     let calculations = response.data;
     console.log('expect array of calculations', calculations);
-    renderCalculations(calculations)
+    renderCalculations(calculations);
     })
 }
 
@@ -35,7 +34,7 @@ function renderCalculations (calcuations) {
     }
     let lastCalculation = calcuations.slice(-1);
     console.log('expect last calculation', lastCalculation);
-    recentResult.innerHTML += `${lastCalculation[0].result}`;
+    recentResult.innerHTML += `<h2>${lastCalculation[0].result}</h2>`;
 }
 
 
@@ -84,4 +83,15 @@ function onEquals() {
 function onClear() {
     document.getElementById('firstNumber').value = '';
     document.getElementById('secondNumber').value = '';
+}
+
+// clear history button clears the history
+    // sends a delete request to the server
+function onClearHistory(){
+    axios({
+        url: '/calculations',
+        method: 'DELETE'
+    }).then((response) => {
+        getHistory();
+    })
 }
