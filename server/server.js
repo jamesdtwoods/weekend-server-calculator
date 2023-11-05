@@ -25,6 +25,26 @@ app.get('/calculations', (req, res) => {
 // POST /calculations
   // does the math, pushes to array
   // sends 201
+  app.post('/calculations', (req, res) => {
+    console.log('POST /calculations is getting requeset')
+    console.log('POST /calculations req.body:', req.body)
+    let newCalculation = req.body;
+    if (newCalculation.operator === '+'){
+      newCalculation.result = Number(newCalculation.numOne) + Number(newCalculation.numTwo);
+      calculations.push(newCalculation);
+    } else if (newCalculation.operator === '-'){
+      newCalculation.result = Number(newCalculation.numOne) - Number(newCalculation.numTwo);
+      calculations.push(newCalculation);
+    } else if (newCalculation.operator === '*'){
+      newCalculation.result = Number(newCalculation.numOne) * Number(newCalculation.numTwo);
+      calculations.push(newCalculation);
+    } else if (newCalculation.operator === '/'){
+      newCalculation.result = Number(newCalculation.numOne) / Number(newCalculation.numTwo);
+      calculations.push(newCalculation);
+    }
+    console.log('expect calculation inputs', calculations);
+    res.sendStatus(201)
+  });
 
 
 // PLEASE DO NOT MODIFY ANY CODE BELOW THESE BEARS:
